@@ -15,8 +15,7 @@
 - name: retrieve currently boto-logged in account number
   shell: "aws sts {% if aws_account_match_profile %}--profile {{ aws_account_match_profile }}{% endif %} get-caller-identity --output text --query 'Account'"
   args:
-    executable: /bin/sh
-  delegate_to: localhost
+    executable: /bin/sh  
   check_mode: False
   changed_when: False
   register: _aws_account_match_number
